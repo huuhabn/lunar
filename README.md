@@ -1,51 +1,44 @@
-<p align="center"><a href="https://lunarphp.io/" target="_blank"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lunarphp/art/main/lunar-logo-dark.svg"><img alt="Lunar" width="200" src="https://raw.githubusercontent.com/lunarphp/art/main/lunar-logo.svg"></picture></a></p>
+## Installation with Docker
 
-> [!CAUTION]
-> Version 1.x is currently in alpha release. We recommend this version for new projects, however, it is not feature-complete and therefore may not be deemed production-ready.
+> Make sure you have Docker installed on your local machine.
 
+```bash
+cp .env.docker.example .env
+docker-compose up
+```
 
-[Lunar](https://lunarphp.io) is a set of Laravel packages that bring functionality akin to Shopify and other e-commerce platforms to 
-Laravel. You have complete freedom to create your own storefront(s), but we've already done the hard work for you in 
-the backend.
+### Environment Demo store
 
-This repository serves as a monorepo for the main packages that make up Lunar.
+You can execute it via the `docker compose up` command in your favorite terminal. 
+Please note that the speed of building images and initializing containers depends on your local machine and internet connection - it may take some time. 
 
-## Requirements
+```bash
+cp .env.example .env
+```
 
-- PHP >= 8.2
-- Laravel 10 / Laravel 11
-- MySQL 8.0+ / PostgreSQL 9.2+
+Install Lunar
+```bash
+php artisan lunar:install
+```
 
-## Documentation
+Seed the demo data.
+```bash
+php artisan db:seed
+```
 
-- [v1.0 documentation](https://docs-v1.lunarphp.io/)
+Link the storage directory
+```bash
+php artisan storage:link
+```
 
-## Contribution
+Start serve
 
-- Bug reports should be submitted as a new Github issue
-- Enhancements should [be in discussions](https://github.com/lunarphp/lunar/discussions/new?category=enhancements)
-- Feature requests should [be in discussions](https://github.com/lunarphp/lunar/discussions/new?category=feature-requests)
+```bash
+php artisan serve --port=8010
+```
+The demo store will be available to `http://127.0.0.1:8010` in your browser.
 
-## Community
+####  Log into Lunar panel
 
-- [Join our discord server](https://discord.gg/v6qVWaf) and chat to the developers and people using Lunar.
-- [We have a roadmap](https://github.com/orgs/lunarphp/projects/8) where we will be detailing which features are next.
+Once the project is prepared, the Lunar panel will start and available to `http://127.0.0.1:8010/lunar`. 
 
-## Packages in this monorepo
-
-### Admin panel
-
-The admin panel is provided to enable you to manage your store via a modern interface. You can manage all aspects of 
-your store including products, orders, staff members etc. It's built using Filament and can be extended to meet each of 
-your stores requirements.
-
-### Core
-
-The core Lunar package, this provides all the things needed for your store to function. This is where all the models, 
-actions and utilities live and is required by the admin hub.
-
----
-
-## License
-
-Lunar is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
